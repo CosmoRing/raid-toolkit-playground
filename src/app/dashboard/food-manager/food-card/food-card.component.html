@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="d-flex">
+            <span class="mr-2">{{hero?.name ?? '-'}}</span>
+            <span class="ml-auto">{{hero?.level ?? '-'}}</span>
+        </mat-card-title>
+        <mat-card-subtitle class="d-flex">
+            <span class="mr-2" [innerHtml]="[hero?.rank, hero?.type?.ascended] | heroStarLabel"></span>
+            <span class="ml-auto">{{hero?.marker ? '&#174;' : ''}}</span>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions class="d-flex">
+        <button class="ml-auto" [ngClass]="{'mat-warn': isFood }" mat-button (click)="toogleFoodStatus()">{{isFood ? 'Ignore' : 'FOOD' }}</button>
+    </mat-card-actions>
+</mat-card>

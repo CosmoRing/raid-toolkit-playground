@@ -1,0 +1,36 @@
+// BOOTSTRAP RESET
+* {
+    &:active,
+    :focus {
+        outline: none !important; // 1
+    }
+}
+
+a:not(.mat-button):not(.mat-raised-button):not(.mat-fab):not(.mat-mini-fab):not([mat-list-item]) {
+    color: theme-color("primary"); // 2
+}
+
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+    transform: none !important;
+}
+
+// MATERIAL AJUSTMENTS
+mat-accordion.mat-accordion,
+mat-expansion-panel.mat-expansion-panel,
+.mat-expansion-panel-content,
+.mat-expansion-panel-body {
+    display: flex;
+    overflow: hidden !important;
+    flex-direction: column;
+}
+
+mat-expansion-panel {
+    min-height: 48px;
+}
+
+mat-expansion-panel-header {
+    min-height: 48px;
+    &.mat-expanded {
+        min-height: 64px;;
+    }
+}

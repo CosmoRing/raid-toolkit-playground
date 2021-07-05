@@ -1,0 +1,38 @@
+@import "variables";
+
+// Imports functions, variables, and mixins that are needed by other Bootstrap files
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/utilities";
+
+@import "reset";
+
+html, body { 
+    height: 100%; 
+    background-color: rgb(33,33,42);
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.responsive-container {
+    width: auto;
+    height: auto;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    margin: auto !important;
+
+    .responsive {
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 100% !important;
+        margin: auto !important;
+    }
+}

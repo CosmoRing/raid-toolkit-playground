@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="mr-2">
+    <mat-expansion-panel class="mb-2" expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Resume
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-food-resume class="h-100"></app-food-resume>
+    </mat-expansion-panel>
+  </div>
+
+  <div class="flex-fill overflow-hidden">
+    <mat-accordion style="max-height: 100%;">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Food Champions
+            <span class="ml-2 badge badge-light">{{ foodManagerService.foodHeroes.length }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-panel-container">
+          <app-food-card *ngFor="let hero of foodManagerService.foodHeroes" [hero]="hero" [isFood]="true">
+          </app-food-card>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Ignored Champions
+            <span class="ml-2 badge badge-light">{{ foodManagerService.ignoredHeroes.length }}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-panel-container">
+          <app-food-card *ngFor="let hero of foodManagerService.ignoredHeroes" [hero]="hero" [isFood]="false">
+          </app-food-card>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+</div>

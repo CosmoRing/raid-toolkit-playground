@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>RSL Manager</span>
+
+    <ng-container *ngTemplateOutlet="linksTemplate; context: { $implicit: 'ml-2 d-sm-inline-block d-none'}">
+    </ng-container>
+
+    <span class="spacer"></span>
+    <button mat-icon-button class="mr-2" (click)="forceRefresh()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>{{ drawer.opened ? 'settings_applications' : 'settings'}}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<ng-template #linksTemplate let-classes>
+  <a [ngClass]="classes" mat-button href="food-manager" routerLink="food-manager" routerLinkActive="mat-accent">Food
+    Manager</a>
+</ng-template>
+
+<mat-drawer-container class="mx-0" #container>
+
+  <router-outlet></router-outlet>
+
+  <mat-drawer #drawer position="end" autosize style="min-width:30%" mode="over">
+    <div class="p-2 d-flex flex-column h-100 overflow-hidden">
+      <ng-container
+        *ngTemplateOutlet="linksTemplate; context: { $implicit: 'text-white mb-1 d-inline-block d-sm-none'}">
+      </ng-container>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>
