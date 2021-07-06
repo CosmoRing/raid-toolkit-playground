@@ -2,9 +2,14 @@
   <div class="mr-2">
     <mat-expansion-panel class="mb-2" expanded>
       <mat-expansion-panel-header>
-        <mat-panel-title>
+        <mat-panel-title class="align-items-center">
           Resume
         </mat-panel-title>
+        <mat-panel-description>
+          <button class="ml-auto" mat-icon-button (click)="$event.stopPropagation(); openInfo();">
+            <mat-icon fontSet="fa" fontIcon="fa-question-circle"></mat-icon>
+          </button>
+        </mat-panel-description>
       </mat-expansion-panel-header>
       <app-food-resume class="h-100"></app-food-resume>
     </mat-expansion-panel>

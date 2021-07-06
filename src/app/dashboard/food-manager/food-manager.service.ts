@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { HeroInstance } from '@raid-toolkit/types';
-import { Subject } from 'rxjs';
-import { from, Observable } from 'rxjs';
+import { from, Observable, Subject } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { ClientService } from 'src/app/shared/services/client.service';
+import { ClientService } from '../../shared/services/client.service';
 
 @UntilDestroy()
 @Injectable({

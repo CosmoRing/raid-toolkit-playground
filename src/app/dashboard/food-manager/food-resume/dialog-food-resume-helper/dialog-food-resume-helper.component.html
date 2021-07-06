@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Resume Helper</h1>
+<div mat-dialog-content style="max-width: 50vw">
+    <ul>
+        <li>
+            <u>Total:</u> Total of food champions in the current rank.
+        </li>
+        <li>
+            <u>Max Level:</u> Total of food champions in the current rank at max level.
+        </li>
+        <li>
+            <u>Chickens:</u> Number of chickens of rank. Can be ignored using the chicken icon (right side) for a
+            specific rank.
+            <br /> If you have more chickens than food champions, the number of champions will be the limiting factor.
+        </li>
+        <li>
+            <u>Can Upgrade:</u> Number of total food champions that can be upgraded to the next rank. If it's set to use
+            lower rank champions, it uses the number on <u>Can Upgrade</u> from the previous rank and sums it with the
+            current. You can ignore previous rank using the button next to the chicken.
+        </li>
+        <li>
+            <u>Missing Max Level:</u> You still need X food champions at max level on the rank to achieve the number in
+            <u>Can Upgrade</u>.
+        </li>
+        <li>
+            <u>Missing for Next Upgrade:</u> You still need X food champions on the current rank to upgrade one more. If
+            it's set to use lower rank champions, you will see the number of food champions "needed" sorted from current
+            rank to lower rank.
+            <br />
+            Ex: 3/9/26
+            <br />
+            For the next upgrade to be available you need: 3 <span [innerHtml]="[4, undefined] | heroStarLabel"></span>.
+            <br />
+            To get these you need: 9 <span [innerHtml]="[3, undefined] | heroStarLabel"></span> or 26 <span
+                [innerHtml]="[2, undefined] | heroStarLabel"></span>
+        </li>
+    </ul>
+</div>

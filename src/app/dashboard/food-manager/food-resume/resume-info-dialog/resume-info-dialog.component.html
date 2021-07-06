@@ -1,0 +1,56 @@
+<h1 mat-dialog-title [innerHtml]="[resume.rank, undefined] | heroStarLabel"></h1>
+<div mat-dialog-content style="max-width: 30vw">
+    <p>
+        You have a total of <u>{{resume.currentFood}} food champions</u>.
+        <br />
+        Of those you have <u>{{resume.currentFoodAtMaxLevel}}</u> at max level ({{resume.maxLevel}}).
+    </p>
+    <p>
+        You have <u>{{resume.chickens}} chickens</u>.
+        <br />
+        <u>
+            <ng-container *ngIf="resume.ignoreChickensInTotal; then chickensIngoredTemplate; else chickensUsedTemplate">
+            </ng-container>
+            <ng-template #chickensIngoredTemplate>
+                These chicken are going to be ignored when calculating the current/total upgrades that can be done.
+            </ng-template>
+            <ng-template #chickensUsedTemplate>
+                If you have more chickens than food champions, the number of champions will be the limiting factor.
+            </ng-template>
+        </u>
+    </p>
+    <p>
+        With the current food champions and levels you can upgrade <u
+            [ngClass]="{ 'text-success': resume.currentUgradeRankAvailable > 0 }"> {{resume.currentUgradeRankAvailable}}
+            champions</u> to <span [innerHtml]="[resume.rank + 1, undefined] | heroStarLabel"></span>.
+    </p>
+    <p *ngIf="!resume.ignoreLowerRankFoodInTotal">
+        You have set to take into account the lower rank food champions when calculating the total.
+        <br />
+        Assumed that can get <u>{{resume.totalFood !== resume.currentFood ? resume.totalFood - resume.currentFood : 0
+            }}</u> from lower ranks.
+    </p>
+    <p>
+        Theoricaly you can upgrade <u>{{resume.totalUpgradeRankAvailable}}</u> food champions and still need
+        <u>{{resume.missingFoodAtMaxLevelForTotalUgrade}}</u> food champions at max level.
+    </p>
+
+    <p *ngIf="resume.missingRankFoodForNextUpgradeRankList.length > 0">
+        For the next upgrade to be available you need:
+        <li>
+            {{ resume.missingRankFoodForNextUpgradeRankList[0] }} <span
+                [innerHtml]="[resume.rank, undefined] | heroStarLabel"></span>
+        </li>
+        <span class="ml-2 mt-1 d-inline-block" *ngIf="resume.missingRankFoodForNextUpgradeRankList.length > 1">
+            To get these you need:
+            <ng-container
+                *ngFor="let missing of resume.missingRankFoodForNextUpgradeRankList; let index = index; let last = last">
+                <li class="mr-1" *ngIf="index > 0">
+                    {{ missing }} <span [innerHtml]="[resume.rank - index, undefined] | heroStarLabel"></span>
+                    <ng-container *ngIf="!last"> or</ng-container>
+                </li>
+            </ng-container>
+        </span>
+
+    </p>
+</div>

@@ -20,21 +20,7 @@
     "lib": [
       "es6",
       "dom"
-    ],
-    "paths": {
-      "path": [
-        "./node_modules/path-browserify"
-      ],
-      "crypto": [
-        "./node_modules/crypto-browserify"
-      ],
-      "stream": [
-        "./node_modules/stream-browserify"
-      ],
-      "buffer": [
-        "./node_modules/buffer-browserify"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

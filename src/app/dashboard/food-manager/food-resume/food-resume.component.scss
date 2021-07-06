@@ -17,4 +17,15 @@ app-food-resume {
         border: none;
         width: 60px;
     }
+
+    .mat-icon-button.grouped-icons {
+        position: relative;
+
+        mat-icon:nth-child(2) {
+            position: absolute;
+            left: 16%;
+            top: 21%;
+            font-size: 200%;
+        }
+    }
 }

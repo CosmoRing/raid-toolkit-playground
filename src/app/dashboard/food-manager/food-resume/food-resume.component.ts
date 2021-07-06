@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { startWith } from 'rxjs/operators';
 import { FoodManagerService } from '../food-manager.service';
+import { ResumeInfoDialogComponent } from './resume-info-dialog/resume-info-dialog.component';
 import { IFoodRankResume } from './viewmodels/interfaces/foodRankResume';
 
 @UntilDestroy()
@@ -17,7 +19,7 @@ export class FoodResumeComponent implements OnInit {
 
   public foodRankResumes: IFoodRankResume[] = [];
 
-  constructor(private foodManagerService: FoodManagerService) {
+  constructor(private foodManagerService: FoodManagerService, private dialog: MatDialog) {
     this.createResumes();
   }
 
@@ -33,6 +35,14 @@ export class FoodResumeComponent implements OnInit {
   public toogleIgnoreRank(resume: IFoodRankResume): void {
     resume.ignoreLowerRankFoodInTotal = !resume.ignoreLowerRankFoodInTotal;
     this.updateResume();
+  }
+  public toogleIgnoreChicken(resume: IFoodRankResume): void {
+    resume.ignoreChickensInTotal = !resume.ignoreChickensInTotal;
+    this.updateResume();
+  }
+
+  public openInfo(resume: IFoodRankResume): void {
+    this.dialog.open(ResumeInfoDialogComponent, { data: resume });
   }
 
   public updateResume(): void {
@@ -91,9 +101,9 @@ export class FoodResumeComponent implements OnInit {
     const missingRankFoodForNUpgradeRankList: number[] = [
       this.getFoodNeededForUpgrades(resume, upgrades)
     ];
-    
+
     if (resume.ignoreLowerRankFoodInTotal) return missingRankFoodForNUpgradeRankList;
-    
+
     let lowerRankResume: IFoodRankResume | undefined = this.foodRankResumes.find(r => r.rank === resume.rank - 1);
 
     while (lowerRankResume !== undefined) {

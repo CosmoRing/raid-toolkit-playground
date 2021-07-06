@@ -11,6 +11,8 @@ import { FoodCardComponent } from './dashboard/food-manager/food-card/food-card.
 import { HeroStarLabelPipe } from './shared/pipes/hero-star-label.pipe';
 import { FoodResumeComponent } from './dashboard/food-manager/food-resume/food-resume.component';
 import { FoodCostsComponent } from './dashboard/food-manager/food-costs/food-costs.component';
+import { ResumeInfoDialogComponent } from './dashboard/food-manager/food-resume/resume-info-dialog/resume-info-dialog.component';
+import { DialogFoodResumeHelperComponent } from './dashboard/food-manager/food-resume/dialog-food-resume-helper/dialog-food-resume-helper.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FoodCostsComponent } from './dashboard/food-manager/food-costs/food-cos
     FoodCardComponent,
     HeroStarLabelPipe,
     FoodResumeComponent,
-    FoodCostsComponent
+    FoodCostsComponent,
+    ResumeInfoDialogComponent,
+    DialogFoodResumeHelperComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Subscription } from 'rxjs';
 import { FoodManagerService } from './food-manager.service';
+import { DialogFoodResumeHelperComponent } from './food-resume/dialog-food-resume-helper/dialog-food-resume-helper.component';
 
 @UntilDestroy()
 @Component({
@@ -13,10 +15,14 @@ export class FoodManagerComponent implements OnInit {
 
   private loadSubscription: Subscription | null = null;
 
-  constructor(public foodManagerService: FoodManagerService) { }
+  constructor(public foodManagerService: FoodManagerService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadFood();
+  }
+
+  public openInfo(): void {
+    this.dialog.open(DialogFoodResumeHelperComponent);
   }
 
   private loadFood(): void {
