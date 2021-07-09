@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HeroInstance } from '@raid-toolkit/types';
 import { FoodManagerService } from '../food-manager.service';
+import { RarityColors } from '../helpers/rarity-colors';
 
 @Component({
   selector: 'app-food-card',
@@ -25,6 +26,13 @@ export class FoodCardComponent implements OnInit {
         this.foodManagerService.addAsFood(this.hero);
       }
     }
+  }
+
+  public getRankColor(): string {
+    if (this.hero?.type?.rarity) {
+      return RarityColors[this.hero.type.rarity];
+    }
+    return '';
   }
 
 }
