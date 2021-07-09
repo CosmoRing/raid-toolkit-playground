@@ -1,4 +1,4 @@
-@import "variables";
+@import "styles/variables";
 
 // Imports functions, variables, and mixins that are needed by other Bootstrap files
 @import "~bootstrap/scss/functions";
@@ -9,7 +9,7 @@
 @import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/utilities";
 
-@import "reset";
+@import "styles/reset";
 
 html, body { 
     height: 100%; 
